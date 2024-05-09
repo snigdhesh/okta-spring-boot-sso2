@@ -20,6 +20,9 @@ public class SecurityConfig {
         //Authenticate all/any requests
         httpSecurity.authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
 
+        //Spring security logout confirmation page can be disabled, by disabling CSRF.
+        httpSecurity.csrf(csrf -> csrf.disable());
+
         //Handle logout
         httpSecurity.logout(logout-> logout.logoutSuccessHandler(new OktaLogoutHandler(logoutUrl)));
 
