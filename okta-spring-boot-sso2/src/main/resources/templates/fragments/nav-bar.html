@@ -9,18 +9,18 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a class="nav-link" th:href="@{/profile}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
             <form class="d-flex" method="post" th:action="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}">
-                <button type="submit" class="btn btn-danger">Logout</button>
+                <button class="btn btn-tmo" type="submit">Logout</button>
             </form>
             <form class="d-flex" method="get" th:action="@{/oauth2/authorization/okta}" th:unless="${#authorization.expression('isAuthenticated()')}">
-                <button class="btn btn-primary me-2" type="submit">Login</button>
+                <button class="btn btn-tmo" type="submit">Login</button>
             </form>
         </div>
     </div>

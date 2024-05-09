@@ -1,0 +1,10 @@
+.btn-tmo{
+    background-color: #E20074;
+    color: white;
+}
+
+.btn-tmo:hover{
+    color: #E20074;
+    border: 1px solid #E20074;
+    background-color: white;
+}

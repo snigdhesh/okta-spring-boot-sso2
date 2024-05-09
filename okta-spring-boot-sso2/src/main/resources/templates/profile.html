@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+    <body>
+
+            <div layout:fragment="content">
+
+                <div>
+                    <h2>Hello <span th:text="${#authentication.principal.fullName}">John doe</span>! Here is your profile.</h2>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Claim</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${details}">
+                        <td th:text="${item.key}">Key</td>
+                        <td th:id="${'claim-' + item.key}" th:text="${item.value}">Value</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+    </body>
+</html>
